@@ -79,11 +79,12 @@ namespace Google.Protobuf.WellKnownTypes {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Struct : pb::IMessage<Struct>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<Struct> _parser = new pb::MessageParser<Struct>(() => new Struct());
+    private static readonly pb::MessageParser<Struct> _parser = new pb::MessageParser<Struct>(Struct.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -108,6 +109,26 @@ namespace Google.Protobuf.WellKnownTypes {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static Struct NewFromPool() {
+      return pb::MessagePool<Struct>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      foreach (var pair in fields_) {
+        pair.Value.Dispose();
+      }
+      fields_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<Struct>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -269,11 +290,12 @@ namespace Google.Protobuf.WellKnownTypes {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Value : pb::IMessage<Value>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<Value> _parser = new pb::MessageParser<Value>(() => new Value());
+    private static readonly pb::MessageParser<Value> _parser = new pb::MessageParser<Value>(Value.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -298,6 +320,32 @@ namespace Google.Protobuf.WellKnownTypes {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static Value NewFromPool() {
+      return pb::MessagePool<Value>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      switch (KindCase) {
+        case KindOneofCase.StructValue:
+          StructValue.Dispose();
+          break;
+        case KindOneofCase.ListValue:
+          ListValue.Dispose();
+          break;
+      }
+      ClearKind();
+
+      _unknownFields = null;
+      pb::MessagePool<Value>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -670,13 +718,13 @@ namespace Google.Protobuf.WellKnownTypes {
           break;
         case KindOneofCase.StructValue:
           if (StructValue == null) {
-            StructValue = new global::Google.Protobuf.WellKnownTypes.Struct();
+            StructValue = global::Google.Protobuf.WellKnownTypes.Struct.NewFromPool();
           }
           StructValue.MergeFrom(other.StructValue);
           break;
         case KindOneofCase.ListValue:
           if (ListValue == null) {
-            ListValue = new global::Google.Protobuf.WellKnownTypes.ListValue();
+            ListValue = global::Google.Protobuf.WellKnownTypes.ListValue.NewFromPool();
           }
           ListValue.MergeFrom(other.ListValue);
           break;
@@ -715,7 +763,7 @@ namespace Google.Protobuf.WellKnownTypes {
             break;
           }
           case 42: {
-            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
+            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = global::Google.Protobuf.WellKnownTypes.Struct.NewFromPool();
             if (kindCase_ == KindOneofCase.StructValue) {
               subBuilder.MergeFrom(StructValue);
             }
@@ -724,7 +772,7 @@ namespace Google.Protobuf.WellKnownTypes {
             break;
           }
           case 50: {
-            global::Google.Protobuf.WellKnownTypes.ListValue subBuilder = new global::Google.Protobuf.WellKnownTypes.ListValue();
+            global::Google.Protobuf.WellKnownTypes.ListValue subBuilder = global::Google.Protobuf.WellKnownTypes.ListValue.NewFromPool();
             if (kindCase_ == KindOneofCase.ListValue) {
               subBuilder.MergeFrom(ListValue);
             }
@@ -765,7 +813,7 @@ namespace Google.Protobuf.WellKnownTypes {
             break;
           }
           case 42: {
-            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
+            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = global::Google.Protobuf.WellKnownTypes.Struct.NewFromPool();
             if (kindCase_ == KindOneofCase.StructValue) {
               subBuilder.MergeFrom(StructValue);
             }
@@ -774,7 +822,7 @@ namespace Google.Protobuf.WellKnownTypes {
             break;
           }
           case 50: {
-            global::Google.Protobuf.WellKnownTypes.ListValue subBuilder = new global::Google.Protobuf.WellKnownTypes.ListValue();
+            global::Google.Protobuf.WellKnownTypes.ListValue subBuilder = global::Google.Protobuf.WellKnownTypes.ListValue.NewFromPool();
             if (kindCase_ == KindOneofCase.ListValue) {
               subBuilder.MergeFrom(ListValue);
             }
@@ -796,11 +844,12 @@ namespace Google.Protobuf.WellKnownTypes {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListValue : pb::IMessage<ListValue>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ListValue> _parser = new pb::MessageParser<ListValue>(() => new ListValue());
+    private static readonly pb::MessageParser<ListValue> _parser = new pb::MessageParser<ListValue>(ListValue.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -825,6 +874,26 @@ namespace Google.Protobuf.WellKnownTypes {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static ListValue NewFromPool() {
+      return pb::MessagePool<ListValue>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      for (int i = 0; i < values_.Count; i++) {
+        values_[i].Dispose();
+      }
+      values_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<ListValue>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

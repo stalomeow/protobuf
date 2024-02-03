@@ -108,6 +108,7 @@ void MessageGenerator::Generate(io::Printer* printer) {
   } else {
     printer->Print(vars, "pb::IMessage<$class_name$>\n");
   }
+  printer->Print("    , global::System.IDisposable\n");
   printer->Print("#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE\n");
   printer->Print("    , pb::IBufferMessage\n");
   printer->Print("#endif\n");
@@ -118,7 +119,7 @@ void MessageGenerator::Generate(io::Printer* printer) {
   printer->Print(
       vars,
       "private static readonly pb::MessageParser<$class_name$> _parser = new "
-      "pb::MessageParser<$class_name$>(() => new $class_name$());\n");
+      "pb::MessageParser<$class_name$>($class_name$.NewFromPool);\n");
 
   printer->Print("private pb::UnknownFieldSet _unknownFields;\n");
 
@@ -185,6 +186,13 @@ void MessageGenerator::Generate(io::Printer* printer) {
                  "}\n\n"
                  "partial void OnConstruction();\n\n");
 
+  WriteGeneratedCodeAttributes(printer);
+  printer->Print(vars,
+                 "public static $class_name$ NewFromPool() {\n"
+                 "  return pb::MessagePool<$class_name$>.Get();\n"
+                 "}\n\n");
+
+  GenerateReleasingCode(printer);
   GenerateCloningCode(printer);
   GenerateFreezingCode(printer);
 
@@ -351,6 +359,73 @@ bool MessageGenerator::HasNestedGeneratedTypes() {
     }
   }
   return false;
+}
+
+void MessageGenerator::GenerateReleasingCode(io::Printer* printer) {
+  absl::flat_hash_map<absl::string_view, std::string> vars;
+  vars["class_name"] = class_name();
+
+  WriteGeneratedCodeAttributes(printer);
+  printer->Print(
+    "public void Dispose() {\n"
+    "  OnDispose();\n");
+  printer->Indent();
+  // Release optional fields' bits
+  for (int i = 0; i < has_bit_field_count_; i++) {
+    printer->Print("_hasBits$i$ = 0;\n", "i", absl::StrCat(i));
+  }
+  // Release non-oneof fields first (treating optional proto3 fields as non-oneof)
+  for (int i = 0; i < descriptor_->field_count(); i++) {
+    const FieldDescriptor* field = descriptor_->field(i);
+    if (field->real_containing_oneof()) {
+      continue;
+    }
+    std::unique_ptr<FieldGeneratorBase> generator(
+        CreateFieldGeneratorInternal(field));
+    generator->GenerateReleasingCode(printer);
+  }
+  // Release just the right field for each real oneof
+  for (int i = 0; i < descriptor_->real_oneof_decl_count(); ++i) {
+    const OneofDescriptor* oneof = descriptor_->oneof_decl(i);
+    vars["name"] = UnderscoresToCamelCase(oneof->name(), false);
+    vars["property_name"] = UnderscoresToCamelCase(oneof->name(), true);
+    printer->Print(vars, "switch ($property_name$Case) {\n");
+    printer->Indent();
+    for (int j = 0; j < oneof->field_count(); j++) {
+      const FieldDescriptor* field = oneof->field(j);
+
+      if (field->type() != FieldDescriptor::TYPE_MESSAGE &&
+          field->type() != FieldDescriptor::TYPE_GROUP) {
+        continue;
+      }
+
+      std::unique_ptr<FieldGeneratorBase> generator(
+          CreateFieldGeneratorInternal(field));
+      vars["oneof_case_name"] = GetOneofCaseName(field);
+      printer->Print(vars,
+                     "case $property_name$OneofCase.$oneof_case_name$:\n");
+      printer->Indent();
+      generator->GenerateReleasingCode(printer);
+      printer->Print("break;\n");
+      printer->Outdent();
+    }
+    printer->Outdent();
+    printer->Print("}\n");
+
+    printer->Print(vars, "Clear$property_name$();\n\n");
+  }
+
+  // Release unknown fields
+  printer->Print("_unknownFields = null;\n");
+
+  // Release self
+  printer->Print(vars,
+    "pb::MessagePool<$class_name$>.Release(this);\n");
+
+  printer->Outdent();
+  printer->Print("}\n\n");
+
+  printer->Print("partial void OnDispose();\n\n");
 }
 
 void MessageGenerator::GenerateCloningCode(io::Printer* printer) {

@@ -112,6 +112,38 @@ void MapFieldGenerator::WriteToString(io::Printer* printer) {
     // TODO: If we ever actually use ToString, we'll need to impleme this...
 }
 
+void MapFieldGenerator::GenerateReleasingCode(io::Printer* printer) {
+  const FieldDescriptor* key_descriptor =
+    descriptor_->message_type()->map_key();
+  const FieldDescriptor* value_descriptor =
+    descriptor_->message_type()->map_value();
+
+  bool key_is_msg =
+    key_descriptor->type() == FieldDescriptor::Type::TYPE_MESSAGE;
+  bool value_is_msg =
+    value_descriptor->type() == FieldDescriptor::Type::TYPE_MESSAGE;
+
+  if (key_is_msg || value_is_msg) {
+    printer->Print(variables_,
+      "foreach (var pair in $name$_) {\n");
+    printer->Indent();
+
+    if (key_is_msg) {
+      printer->Print("pair.Key.Dispose();\n");
+    }
+
+    if (value_is_msg) {
+      printer->Print("pair.Value.Dispose();\n");
+    }
+
+    printer->Outdent();
+    printer->Print("}\n");
+  }
+
+  printer->Print(variables_,
+    "$name$_.Clear();\n");
+}
+
 void MapFieldGenerator::GenerateCloningCode(io::Printer* printer) {
   printer->Print(variables_,
     "$name$_ = other.$name$_.Clone();\n");

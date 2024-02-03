@@ -29,6 +29,7 @@ class RepeatedEnumFieldGenerator : public FieldGeneratorBase {
   RepeatedEnumFieldGenerator& operator=(const RepeatedEnumFieldGenerator&) =
       delete;
 
+  virtual void GenerateReleasingCode(io::Printer* printer) override;
   virtual void GenerateCloningCode(io::Printer* printer) override;
   virtual void GenerateFreezingCode(io::Printer* printer) override;
   virtual void GenerateMembers(io::Printer* printer) override;

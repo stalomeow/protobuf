@@ -27,6 +27,7 @@ class MessageFieldGenerator : public FieldGeneratorBase {
   MessageFieldGenerator& operator=(const MessageFieldGenerator&) = delete;
 
   virtual void GenerateCodecCode(io::Printer* printer) override;
+  virtual void GenerateReleasingCode(io::Printer* printer) override;
   virtual void GenerateCloningCode(io::Printer* printer) override;
   virtual void GenerateFreezingCode(io::Printer* printer) override;
   virtual void GenerateMembers(io::Printer* printer) override;
@@ -52,6 +53,7 @@ class MessageOneofFieldGenerator : public MessageFieldGenerator {
   MessageOneofFieldGenerator& operator=(const MessageOneofFieldGenerator&) =
       delete;
 
+  virtual void GenerateReleasingCode(io::Printer* printer) override;
   virtual void GenerateCloningCode(io::Printer* printer) override;
   virtual void GenerateMembers(io::Printer* printer) override;
   virtual void GenerateMergingCode(io::Printer* printer) override;

@@ -26,6 +26,7 @@ class MapFieldGenerator : public FieldGeneratorBase {
   MapFieldGenerator(const MapFieldGenerator&) = delete;
   MapFieldGenerator& operator=(const MapFieldGenerator&) = delete;
 
+  virtual void GenerateReleasingCode(io::Printer* printer) override;
   virtual void GenerateCloningCode(io::Printer* printer) override;
   virtual void GenerateFreezingCode(io::Printer* printer) override;
   virtual void GenerateMembers(io::Printer* printer) override;

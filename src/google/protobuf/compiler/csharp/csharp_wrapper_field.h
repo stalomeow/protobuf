@@ -29,6 +29,7 @@ class WrapperFieldGenerator : public FieldGeneratorBase {
   WrapperFieldGenerator& operator=(const WrapperFieldGenerator&) = delete;
 
   virtual void GenerateCodecCode(io::Printer* printer) override;
+  virtual void GenerateReleasingCode(io::Printer* printer) override;
   virtual void GenerateCloningCode(io::Printer* printer) override;
   virtual void GenerateMembers(io::Printer* printer) override;
   virtual void GenerateMergingCode(io::Printer* printer) override;

@@ -29,6 +29,7 @@ class RepeatedMessageFieldGenerator : public FieldGeneratorBase {
   RepeatedMessageFieldGenerator& operator=(
       const RepeatedMessageFieldGenerator&) = delete;
 
+  virtual void GenerateReleasingCode(io::Printer* printer) override;
   virtual void GenerateCloningCode(io::Printer* printer) override;
   virtual void GenerateFreezingCode(io::Printer* printer) override;
   virtual void GenerateMembers(io::Printer* printer) override;

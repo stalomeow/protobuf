@@ -319,11 +319,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FileDescriptorSet : pb::IMessage<FileDescriptorSet>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<FileDescriptorSet> _parser = new pb::MessageParser<FileDescriptorSet>(() => new FileDescriptorSet());
+    private static readonly pb::MessageParser<FileDescriptorSet> _parser = new pb::MessageParser<FileDescriptorSet>(FileDescriptorSet.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -348,6 +349,26 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static FileDescriptorSet NewFromPool() {
+      return pb::MessagePool<FileDescriptorSet>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      for (int i = 0; i < file_.Count; i++) {
+        file_[i].Dispose();
+      }
+      file_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<FileDescriptorSet>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -501,11 +522,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FileDescriptorProto : pb::IMessage<FileDescriptorProto>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<FileDescriptorProto> _parser = new pb::MessageParser<FileDescriptorProto>(() => new FileDescriptorProto());
+    private static readonly pb::MessageParser<FileDescriptorProto> _parser = new pb::MessageParser<FileDescriptorProto>(FileDescriptorProto.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -531,6 +553,54 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static FileDescriptorProto NewFromPool() {
+      return pb::MessagePool<FileDescriptorProto>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      name_ = "";
+      package_ = "";
+      dependency_.Clear();
+      publicDependency_.Clear();
+      weakDependency_.Clear();
+      for (int i = 0; i < messageType_.Count; i++) {
+        messageType_[i].Dispose();
+      }
+      messageType_.Clear();
+      for (int i = 0; i < enumType_.Count; i++) {
+        enumType_[i].Dispose();
+      }
+      enumType_.Clear();
+      for (int i = 0; i < service_.Count; i++) {
+        service_[i].Dispose();
+      }
+      service_.Clear();
+      for (int i = 0; i < extension_.Count; i++) {
+        extension_[i].Dispose();
+      }
+      extension_.Clear();
+      if (options_ != null) {
+        options_.Dispose();
+        options_ = null;
+      }
+      if (sourceCodeInfo_ != null) {
+        sourceCodeInfo_.Dispose();
+        sourceCodeInfo_ = null;
+      }
+      syntax_ = "";
+      edition_ = global::Google.Protobuf.Reflection.Edition.Unknown;
+      _unknownFields = null;
+      pb::MessagePool<FileDescriptorProto>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -998,13 +1068,13 @@ namespace Google.Protobuf.Reflection {
       extension_.Add(other.extension_);
       if (other.options_ != null) {
         if (options_ == null) {
-          Options = new global::Google.Protobuf.Reflection.FileOptions();
+          Options = global::Google.Protobuf.Reflection.FileOptions.NewFromPool();
         }
         Options.MergeFrom(other.Options);
       }
       if (other.sourceCodeInfo_ != null) {
         if (sourceCodeInfo_ == null) {
-          SourceCodeInfo = new global::Google.Protobuf.Reflection.SourceCodeInfo();
+          SourceCodeInfo = global::Google.Protobuf.Reflection.SourceCodeInfo.NewFromPool();
         }
         SourceCodeInfo.MergeFrom(other.SourceCodeInfo);
       }
@@ -1059,14 +1129,14 @@ namespace Google.Protobuf.Reflection {
           }
           case 66: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.FileOptions();
+              Options = global::Google.Protobuf.Reflection.FileOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
           }
           case 74: {
             if (sourceCodeInfo_ == null) {
-              SourceCodeInfo = new global::Google.Protobuf.Reflection.SourceCodeInfo();
+              SourceCodeInfo = global::Google.Protobuf.Reflection.SourceCodeInfo.NewFromPool();
             }
             input.ReadMessage(SourceCodeInfo);
             break;
@@ -1134,14 +1204,14 @@ namespace Google.Protobuf.Reflection {
           }
           case 66: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.FileOptions();
+              Options = global::Google.Protobuf.Reflection.FileOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
           }
           case 74: {
             if (sourceCodeInfo_ == null) {
-              SourceCodeInfo = new global::Google.Protobuf.Reflection.SourceCodeInfo();
+              SourceCodeInfo = global::Google.Protobuf.Reflection.SourceCodeInfo.NewFromPool();
             }
             input.ReadMessage(SourceCodeInfo);
             break;
@@ -1176,11 +1246,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DescriptorProto : pb::IMessage<DescriptorProto>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<DescriptorProto> _parser = new pb::MessageParser<DescriptorProto>(() => new DescriptorProto());
+    private static readonly pb::MessageParser<DescriptorProto> _parser = new pb::MessageParser<DescriptorProto>(DescriptorProto.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1205,6 +1276,56 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static DescriptorProto NewFromPool() {
+      return pb::MessagePool<DescriptorProto>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      name_ = "";
+      for (int i = 0; i < field_.Count; i++) {
+        field_[i].Dispose();
+      }
+      field_.Clear();
+      for (int i = 0; i < extension_.Count; i++) {
+        extension_[i].Dispose();
+      }
+      extension_.Clear();
+      for (int i = 0; i < nestedType_.Count; i++) {
+        nestedType_[i].Dispose();
+      }
+      nestedType_.Clear();
+      for (int i = 0; i < enumType_.Count; i++) {
+        enumType_[i].Dispose();
+      }
+      enumType_.Clear();
+      for (int i = 0; i < extensionRange_.Count; i++) {
+        extensionRange_[i].Dispose();
+      }
+      extensionRange_.Clear();
+      for (int i = 0; i < oneofDecl_.Count; i++) {
+        oneofDecl_[i].Dispose();
+      }
+      oneofDecl_.Clear();
+      if (options_ != null) {
+        options_.Dispose();
+        options_ = null;
+      }
+      for (int i = 0; i < reservedRange_.Count; i++) {
+        reservedRange_[i].Dispose();
+      }
+      reservedRange_.Clear();
+      reservedName_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<DescriptorProto>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1507,7 +1628,7 @@ namespace Google.Protobuf.Reflection {
       oneofDecl_.Add(other.oneofDecl_);
       if (other.options_ != null) {
         if (options_ == null) {
-          Options = new global::Google.Protobuf.Reflection.MessageOptions();
+          Options = global::Google.Protobuf.Reflection.MessageOptions.NewFromPool();
         }
         Options.MergeFrom(other.Options);
       }
@@ -1554,7 +1675,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 58: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.MessageOptions();
+              Options = global::Google.Protobuf.Reflection.MessageOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -1612,7 +1733,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 58: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.MessageOptions();
+              Options = global::Google.Protobuf.Reflection.MessageOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -1641,11 +1762,12 @@ namespace Google.Protobuf.Reflection {
     public static partial class Types {
       [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class ExtensionRange : pb::IMessage<ExtensionRange>
+          , global::System.IDisposable
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<ExtensionRange> _parser = new pb::MessageParser<ExtensionRange>(() => new ExtensionRange());
+        private static readonly pb::MessageParser<ExtensionRange> _parser = new pb::MessageParser<ExtensionRange>(ExtensionRange.NewFromPool);
         private pb::UnknownFieldSet _unknownFields;
         private int _hasBits0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1671,6 +1793,29 @@ namespace Google.Protobuf.Reflection {
         }
 
         partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static ExtensionRange NewFromPool() {
+          return pb::MessagePool<ExtensionRange>.Get();
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void Dispose() {
+          OnDispose();
+          _hasBits0 = 0;
+          start_ = 0;
+          end_ = 0;
+          if (options_ != null) {
+            options_.Dispose();
+            options_ = null;
+          }
+          _unknownFields = null;
+          pb::MessagePool<ExtensionRange>.Release(this);
+        }
+
+        partial void OnDispose();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1879,7 +2024,7 @@ namespace Google.Protobuf.Reflection {
           }
           if (other.options_ != null) {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.ExtensionRangeOptions();
+              Options = global::Google.Protobuf.Reflection.ExtensionRangeOptions.NewFromPool();
             }
             Options.MergeFrom(other.Options);
           }
@@ -1908,7 +2053,7 @@ namespace Google.Protobuf.Reflection {
               }
               case 26: {
                 if (options_ == null) {
-                  Options = new global::Google.Protobuf.Reflection.ExtensionRangeOptions();
+                  Options = global::Google.Protobuf.Reflection.ExtensionRangeOptions.NewFromPool();
                 }
                 input.ReadMessage(Options);
                 break;
@@ -1938,7 +2083,7 @@ namespace Google.Protobuf.Reflection {
               }
               case 26: {
                 if (options_ == null) {
-                  Options = new global::Google.Protobuf.Reflection.ExtensionRangeOptions();
+                  Options = global::Google.Protobuf.Reflection.ExtensionRangeOptions.NewFromPool();
                 }
                 input.ReadMessage(Options);
                 break;
@@ -1957,11 +2102,12 @@ namespace Google.Protobuf.Reflection {
       /// </summary>
       [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class ReservedRange : pb::IMessage<ReservedRange>
+          , global::System.IDisposable
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<ReservedRange> _parser = new pb::MessageParser<ReservedRange>(() => new ReservedRange());
+        private static readonly pb::MessageParser<ReservedRange> _parser = new pb::MessageParser<ReservedRange>(ReservedRange.NewFromPool);
         private pb::UnknownFieldSet _unknownFields;
         private int _hasBits0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1987,6 +2133,25 @@ namespace Google.Protobuf.Reflection {
         }
 
         partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static ReservedRange NewFromPool() {
+          return pb::MessagePool<ReservedRange>.Get();
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void Dispose() {
+          OnDispose();
+          _hasBits0 = 0;
+          start_ = 0;
+          end_ = 0;
+          _unknownFields = null;
+          pb::MessagePool<ReservedRange>.Release(this);
+        }
+
+        partial void OnDispose();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2227,11 +2392,12 @@ namespace Google.Protobuf.Reflection {
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExtensionRangeOptions : pb::IExtendableMessage<ExtensionRangeOptions>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ExtensionRangeOptions> _parser = new pb::MessageParser<ExtensionRangeOptions>(() => new ExtensionRangeOptions());
+    private static readonly pb::MessageParser<ExtensionRangeOptions> _parser = new pb::MessageParser<ExtensionRangeOptions>(ExtensionRangeOptions.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<ExtensionRangeOptions> _extensions;
     private pb::ExtensionSet<ExtensionRangeOptions> _Extensions { get { return _extensions; } }
@@ -2259,6 +2425,36 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static ExtensionRangeOptions NewFromPool() {
+      return pb::MessagePool<ExtensionRangeOptions>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      for (int i = 0; i < uninterpretedOption_.Count; i++) {
+        uninterpretedOption_[i].Dispose();
+      }
+      uninterpretedOption_.Clear();
+      for (int i = 0; i < declaration_.Count; i++) {
+        declaration_[i].Dispose();
+      }
+      declaration_.Clear();
+      if (features_ != null) {
+        features_.Dispose();
+        features_ = null;
+      }
+      verification_ = global::Google.Protobuf.Reflection.ExtensionRangeOptions.Types.VerificationState.Unverified;
+      _unknownFields = null;
+      pb::MessagePool<ExtensionRangeOptions>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2482,7 +2678,7 @@ namespace Google.Protobuf.Reflection {
       declaration_.Add(other.declaration_);
       if (other.features_ != null) {
         if (features_ == null) {
-          Features = new global::Google.Protobuf.Reflection.FeatureSet();
+          Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
         }
         Features.MergeFrom(other.Features);
       }
@@ -2517,7 +2713,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 402: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -2553,7 +2749,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 402: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -2607,11 +2803,12 @@ namespace Google.Protobuf.Reflection {
 
       [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Declaration : pb::IMessage<Declaration>
+          , global::System.IDisposable
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<Declaration> _parser = new pb::MessageParser<Declaration>(() => new Declaration());
+        private static readonly pb::MessageParser<Declaration> _parser = new pb::MessageParser<Declaration>(Declaration.NewFromPool);
         private pb::UnknownFieldSet _unknownFields;
         private int _hasBits0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2637,6 +2834,28 @@ namespace Google.Protobuf.Reflection {
         }
 
         partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static Declaration NewFromPool() {
+          return pb::MessagePool<Declaration>.Get();
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void Dispose() {
+          OnDispose();
+          _hasBits0 = 0;
+          number_ = 0;
+          fullName_ = "";
+          type_ = "";
+          reserved_ = false;
+          repeated_ = false;
+          _unknownFields = null;
+          pb::MessagePool<Declaration>.Release(this);
+        }
+
+        partial void OnDispose();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3049,11 +3268,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FieldDescriptorProto : pb::IMessage<FieldDescriptorProto>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<FieldDescriptorProto> _parser = new pb::MessageParser<FieldDescriptorProto>(() => new FieldDescriptorProto());
+    private static readonly pb::MessageParser<FieldDescriptorProto> _parser = new pb::MessageParser<FieldDescriptorProto>(FieldDescriptorProto.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3079,6 +3299,37 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static FieldDescriptorProto NewFromPool() {
+      return pb::MessagePool<FieldDescriptorProto>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      name_ = "";
+      number_ = 0;
+      label_ = global::Google.Protobuf.Reflection.FieldDescriptorProto.Types.Label.Optional;
+      type_ = global::Google.Protobuf.Reflection.FieldDescriptorProto.Types.Type.Double;
+      typeName_ = "";
+      extendee_ = "";
+      defaultValue_ = "";
+      oneofIndex_ = 0;
+      jsonName_ = "";
+      if (options_ != null) {
+        options_.Dispose();
+        options_ = null;
+      }
+      proto3Optional_ = false;
+      _unknownFields = null;
+      pb::MessagePool<FieldDescriptorProto>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3679,7 +3930,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.options_ != null) {
         if (options_ == null) {
-          Options = new global::Google.Protobuf.Reflection.FieldOptions();
+          Options = global::Google.Protobuf.Reflection.FieldOptions.NewFromPool();
         }
         Options.MergeFrom(other.Options);
       }
@@ -3731,7 +3982,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 66: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.FieldOptions();
+              Options = global::Google.Protobuf.Reflection.FieldOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -3793,7 +4044,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 66: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.FieldOptions();
+              Options = global::Google.Protobuf.Reflection.FieldOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -3896,11 +4147,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class OneofDescriptorProto : pb::IMessage<OneofDescriptorProto>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<OneofDescriptorProto> _parser = new pb::MessageParser<OneofDescriptorProto>(() => new OneofDescriptorProto());
+    private static readonly pb::MessageParser<OneofDescriptorProto> _parser = new pb::MessageParser<OneofDescriptorProto>(OneofDescriptorProto.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3925,6 +4177,27 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static OneofDescriptorProto NewFromPool() {
+      return pb::MessagePool<OneofDescriptorProto>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      name_ = "";
+      if (options_ != null) {
+        options_.Dispose();
+        options_ = null;
+      }
+      _unknownFields = null;
+      pb::MessagePool<OneofDescriptorProto>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4081,7 +4354,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.options_ != null) {
         if (options_ == null) {
-          Options = new global::Google.Protobuf.Reflection.OneofOptions();
+          Options = global::Google.Protobuf.Reflection.OneofOptions.NewFromPool();
         }
         Options.MergeFrom(other.Options);
       }
@@ -4106,7 +4379,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 18: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.OneofOptions();
+              Options = global::Google.Protobuf.Reflection.OneofOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -4132,7 +4405,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 18: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.OneofOptions();
+              Options = global::Google.Protobuf.Reflection.OneofOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -4149,11 +4422,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class EnumDescriptorProto : pb::IMessage<EnumDescriptorProto>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<EnumDescriptorProto> _parser = new pb::MessageParser<EnumDescriptorProto>(() => new EnumDescriptorProto());
+    private static readonly pb::MessageParser<EnumDescriptorProto> _parser = new pb::MessageParser<EnumDescriptorProto>(EnumDescriptorProto.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4178,6 +4452,36 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static EnumDescriptorProto NewFromPool() {
+      return pb::MessagePool<EnumDescriptorProto>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      name_ = "";
+      for (int i = 0; i < value_.Count; i++) {
+        value_[i].Dispose();
+      }
+      value_.Clear();
+      if (options_ != null) {
+        options_.Dispose();
+        options_ = null;
+      }
+      for (int i = 0; i < reservedRange_.Count; i++) {
+        reservedRange_[i].Dispose();
+      }
+      reservedRange_.Clear();
+      reservedName_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<EnumDescriptorProto>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4395,7 +4699,7 @@ namespace Google.Protobuf.Reflection {
       value_.Add(other.value_);
       if (other.options_ != null) {
         if (options_ == null) {
-          Options = new global::Google.Protobuf.Reflection.EnumOptions();
+          Options = global::Google.Protobuf.Reflection.EnumOptions.NewFromPool();
         }
         Options.MergeFrom(other.Options);
       }
@@ -4426,7 +4730,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 26: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.EnumOptions();
+              Options = global::Google.Protobuf.Reflection.EnumOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -4464,7 +4768,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 26: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.EnumOptions();
+              Options = global::Google.Protobuf.Reflection.EnumOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -4497,11 +4801,12 @@ namespace Google.Protobuf.Reflection {
       /// </summary>
       [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class EnumReservedRange : pb::IMessage<EnumReservedRange>
+          , global::System.IDisposable
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<EnumReservedRange> _parser = new pb::MessageParser<EnumReservedRange>(() => new EnumReservedRange());
+        private static readonly pb::MessageParser<EnumReservedRange> _parser = new pb::MessageParser<EnumReservedRange>(EnumReservedRange.NewFromPool);
         private pb::UnknownFieldSet _unknownFields;
         private int _hasBits0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4527,6 +4832,25 @@ namespace Google.Protobuf.Reflection {
         }
 
         partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static EnumReservedRange NewFromPool() {
+          return pb::MessagePool<EnumReservedRange>.Get();
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void Dispose() {
+          OnDispose();
+          _hasBits0 = 0;
+          start_ = 0;
+          end_ = 0;
+          _unknownFields = null;
+          pb::MessagePool<EnumReservedRange>.Release(this);
+        }
+
+        partial void OnDispose();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4770,11 +5094,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class EnumValueDescriptorProto : pb::IMessage<EnumValueDescriptorProto>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<EnumValueDescriptorProto> _parser = new pb::MessageParser<EnumValueDescriptorProto>(() => new EnumValueDescriptorProto());
+    private static readonly pb::MessageParser<EnumValueDescriptorProto> _parser = new pb::MessageParser<EnumValueDescriptorProto>(EnumValueDescriptorProto.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4800,6 +5125,29 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static EnumValueDescriptorProto NewFromPool() {
+      return pb::MessagePool<EnumValueDescriptorProto>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      name_ = "";
+      number_ = 0;
+      if (options_ != null) {
+        options_.Dispose();
+        options_ = null;
+      }
+      _unknownFields = null;
+      pb::MessagePool<EnumValueDescriptorProto>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5001,7 +5349,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.options_ != null) {
         if (options_ == null) {
-          Options = new global::Google.Protobuf.Reflection.EnumValueOptions();
+          Options = global::Google.Protobuf.Reflection.EnumValueOptions.NewFromPool();
         }
         Options.MergeFrom(other.Options);
       }
@@ -5030,7 +5378,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 26: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.EnumValueOptions();
+              Options = global::Google.Protobuf.Reflection.EnumValueOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -5060,7 +5408,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 26: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.EnumValueOptions();
+              Options = global::Google.Protobuf.Reflection.EnumValueOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -5077,11 +5425,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ServiceDescriptorProto : pb::IMessage<ServiceDescriptorProto>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ServiceDescriptorProto> _parser = new pb::MessageParser<ServiceDescriptorProto>(() => new ServiceDescriptorProto());
+    private static readonly pb::MessageParser<ServiceDescriptorProto> _parser = new pb::MessageParser<ServiceDescriptorProto>(ServiceDescriptorProto.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5106,6 +5455,31 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static ServiceDescriptorProto NewFromPool() {
+      return pb::MessagePool<ServiceDescriptorProto>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      name_ = "";
+      for (int i = 0; i < method_.Count; i++) {
+        method_[i].Dispose();
+      }
+      method_.Clear();
+      if (options_ != null) {
+        options_.Dispose();
+        options_ = null;
+      }
+      _unknownFields = null;
+      pb::MessagePool<ServiceDescriptorProto>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5280,7 +5654,7 @@ namespace Google.Protobuf.Reflection {
       method_.Add(other.method_);
       if (other.options_ != null) {
         if (options_ == null) {
-          Options = new global::Google.Protobuf.Reflection.ServiceOptions();
+          Options = global::Google.Protobuf.Reflection.ServiceOptions.NewFromPool();
         }
         Options.MergeFrom(other.Options);
       }
@@ -5309,7 +5683,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 26: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.ServiceOptions();
+              Options = global::Google.Protobuf.Reflection.ServiceOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -5339,7 +5713,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 26: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.ServiceOptions();
+              Options = global::Google.Protobuf.Reflection.ServiceOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -5356,11 +5730,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class MethodDescriptorProto : pb::IMessage<MethodDescriptorProto>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<MethodDescriptorProto> _parser = new pb::MessageParser<MethodDescriptorProto>(() => new MethodDescriptorProto());
+    private static readonly pb::MessageParser<MethodDescriptorProto> _parser = new pb::MessageParser<MethodDescriptorProto>(MethodDescriptorProto.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5386,6 +5761,32 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static MethodDescriptorProto NewFromPool() {
+      return pb::MessagePool<MethodDescriptorProto>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      name_ = "";
+      inputType_ = "";
+      outputType_ = "";
+      if (options_ != null) {
+        options_.Dispose();
+        options_ = null;
+      }
+      clientStreaming_ = false;
+      serverStreaming_ = false;
+      _unknownFields = null;
+      pb::MessagePool<MethodDescriptorProto>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5721,7 +6122,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.options_ != null) {
         if (options_ == null) {
-          Options = new global::Google.Protobuf.Reflection.MethodOptions();
+          Options = global::Google.Protobuf.Reflection.MethodOptions.NewFromPool();
         }
         Options.MergeFrom(other.Options);
       }
@@ -5760,7 +6161,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 34: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.MethodOptions();
+              Options = global::Google.Protobuf.Reflection.MethodOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -5802,7 +6203,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 34: {
             if (options_ == null) {
-              Options = new global::Google.Protobuf.Reflection.MethodOptions();
+              Options = global::Google.Protobuf.Reflection.MethodOptions.NewFromPool();
             }
             input.ReadMessage(Options);
             break;
@@ -5824,11 +6225,12 @@ namespace Google.Protobuf.Reflection {
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FileOptions : pb::IExtendableMessage<FileOptions>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<FileOptions> _parser = new pb::MessageParser<FileOptions>(() => new FileOptions());
+    private static readonly pb::MessageParser<FileOptions> _parser = new pb::MessageParser<FileOptions>(FileOptions.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<FileOptions> _extensions;
     private pb::ExtensionSet<FileOptions> _Extensions { get { return _extensions; } }
@@ -5856,6 +6258,50 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static FileOptions NewFromPool() {
+      return pb::MessagePool<FileOptions>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      javaPackage_ = "";
+      javaOuterClassname_ = "";
+      javaMultipleFiles_ = false;
+      javaGenerateEqualsAndHash_ = false;
+      javaStringCheckUtf8_ = false;
+      optimizeFor_ = global::Google.Protobuf.Reflection.FileOptions.Types.OptimizeMode.Speed;
+      goPackage_ = "";
+      ccGenericServices_ = false;
+      javaGenericServices_ = false;
+      pyGenericServices_ = false;
+      deprecated_ = false;
+      ccEnableArenas_ = true;
+      objcClassPrefix_ = "";
+      csharpNamespace_ = "";
+      swiftPrefix_ = "";
+      phpClassPrefix_ = "";
+      phpNamespace_ = "";
+      phpMetadataNamespace_ = "";
+      rubyPackage_ = "";
+      if (features_ != null) {
+        features_.Dispose();
+        features_ = null;
+      }
+      for (int i = 0; i < uninterpretedOption_.Count; i++) {
+        uninterpretedOption_[i].Dispose();
+      }
+      uninterpretedOption_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<FileOptions>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6932,7 +7378,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.features_ != null) {
         if (features_ == null) {
-          Features = new global::Google.Protobuf.Reflection.FeatureSet();
+          Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
         }
         Features.MergeFrom(other.Features);
       }
@@ -7033,7 +7479,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 402: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -7137,7 +7583,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 402: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -7203,11 +7649,12 @@ namespace Google.Protobuf.Reflection {
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class MessageOptions : pb::IExtendableMessage<MessageOptions>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<MessageOptions> _parser = new pb::MessageParser<MessageOptions>(() => new MessageOptions());
+    private static readonly pb::MessageParser<MessageOptions> _parser = new pb::MessageParser<MessageOptions>(MessageOptions.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<MessageOptions> _extensions;
     private pb::ExtensionSet<MessageOptions> _Extensions { get { return _extensions; } }
@@ -7235,6 +7682,36 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static MessageOptions NewFromPool() {
+      return pb::MessagePool<MessageOptions>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      messageSetWireFormat_ = false;
+      noStandardDescriptorAccessor_ = false;
+      deprecated_ = false;
+      mapEntry_ = false;
+      deprecatedLegacyJsonFieldConflicts_ = false;
+      if (features_ != null) {
+        features_.Dispose();
+        features_ = null;
+      }
+      for (int i = 0; i < uninterpretedOption_.Count; i++) {
+        uninterpretedOption_[i].Dispose();
+      }
+      uninterpretedOption_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<MessageOptions>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7677,7 +8154,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.features_ != null) {
         if (features_ == null) {
-          Features = new global::Google.Protobuf.Reflection.FeatureSet();
+          Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
         }
         Features.MergeFrom(other.Features);
       }
@@ -7722,7 +8199,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 98: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -7770,7 +8247,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 98: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -7810,11 +8287,12 @@ namespace Google.Protobuf.Reflection {
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FieldOptions : pb::IExtendableMessage<FieldOptions>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<FieldOptions> _parser = new pb::MessageParser<FieldOptions>(() => new FieldOptions());
+    private static readonly pb::MessageParser<FieldOptions> _parser = new pb::MessageParser<FieldOptions>(FieldOptions.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<FieldOptions> _extensions;
     private pb::ExtensionSet<FieldOptions> _Extensions { get { return _extensions; } }
@@ -7842,6 +8320,45 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static FieldOptions NewFromPool() {
+      return pb::MessagePool<FieldOptions>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      ctype_ = global::Google.Protobuf.Reflection.FieldOptions.Types.CType.String;
+      packed_ = false;
+      jstype_ = global::Google.Protobuf.Reflection.FieldOptions.Types.JSType.JsNormal;
+      lazy_ = false;
+      unverifiedLazy_ = false;
+      deprecated_ = false;
+      weak_ = false;
+      debugRedact_ = false;
+      retention_ = global::Google.Protobuf.Reflection.FieldOptions.Types.OptionRetention.RetentionUnknown;
+      targets_.Clear();
+      for (int i = 0; i < editionDefaults_.Count; i++) {
+        editionDefaults_[i].Dispose();
+      }
+      editionDefaults_.Clear();
+      if (features_ != null) {
+        features_.Dispose();
+        features_ = null;
+      }
+      for (int i = 0; i < uninterpretedOption_.Count; i++) {
+        uninterpretedOption_[i].Dispose();
+      }
+      uninterpretedOption_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<FieldOptions>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8499,7 +9016,7 @@ namespace Google.Protobuf.Reflection {
       editionDefaults_.Add(other.editionDefaults_);
       if (other.features_ != null) {
         if (features_ == null) {
-          Features = new global::Google.Protobuf.Reflection.FeatureSet();
+          Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
         }
         Features.MergeFrom(other.Features);
       }
@@ -8569,7 +9086,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 170: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -8642,7 +9159,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 170: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -8747,11 +9264,12 @@ namespace Google.Protobuf.Reflection {
 
       [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class EditionDefault : pb::IMessage<EditionDefault>
+          , global::System.IDisposable
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<EditionDefault> _parser = new pb::MessageParser<EditionDefault>(() => new EditionDefault());
+        private static readonly pb::MessageParser<EditionDefault> _parser = new pb::MessageParser<EditionDefault>(EditionDefault.NewFromPool);
         private pb::UnknownFieldSet _unknownFields;
         private int _hasBits0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8777,6 +9295,25 @@ namespace Google.Protobuf.Reflection {
         }
 
         partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static EditionDefault NewFromPool() {
+          return pb::MessagePool<EditionDefault>.Get();
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void Dispose() {
+          OnDispose();
+          _hasBits0 = 0;
+          edition_ = global::Google.Protobuf.Reflection.Edition.Unknown;
+          value_ = "";
+          _unknownFields = null;
+          pb::MessagePool<EditionDefault>.Release(this);
+        }
+
+        partial void OnDispose();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -9013,11 +9550,12 @@ namespace Google.Protobuf.Reflection {
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class OneofOptions : pb::IExtendableMessage<OneofOptions>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<OneofOptions> _parser = new pb::MessageParser<OneofOptions>(() => new OneofOptions());
+    private static readonly pb::MessageParser<OneofOptions> _parser = new pb::MessageParser<OneofOptions>(OneofOptions.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<OneofOptions> _extensions;
     private pb::ExtensionSet<OneofOptions> _Extensions { get { return _extensions; } }
@@ -9044,6 +9582,30 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static OneofOptions NewFromPool() {
+      return pb::MessagePool<OneofOptions>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      if (features_ != null) {
+        features_.Dispose();
+        features_ = null;
+      }
+      for (int i = 0; i < uninterpretedOption_.Count; i++) {
+        uninterpretedOption_[i].Dispose();
+      }
+      uninterpretedOption_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<OneofOptions>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -9196,7 +9758,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.features_ != null) {
         if (features_ == null) {
-          Features = new global::Google.Protobuf.Reflection.FeatureSet();
+          Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
         }
         Features.MergeFrom(other.Features);
       }
@@ -9221,7 +9783,7 @@ namespace Google.Protobuf.Reflection {
             break;
           case 10: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -9249,7 +9811,7 @@ namespace Google.Protobuf.Reflection {
             break;
           case 10: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -9289,11 +9851,12 @@ namespace Google.Protobuf.Reflection {
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class EnumOptions : pb::IExtendableMessage<EnumOptions>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<EnumOptions> _parser = new pb::MessageParser<EnumOptions>(() => new EnumOptions());
+    private static readonly pb::MessageParser<EnumOptions> _parser = new pb::MessageParser<EnumOptions>(EnumOptions.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<EnumOptions> _extensions;
     private pb::ExtensionSet<EnumOptions> _Extensions { get { return _extensions; } }
@@ -9321,6 +9884,34 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static EnumOptions NewFromPool() {
+      return pb::MessagePool<EnumOptions>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      allowAlias_ = false;
+      deprecated_ = false;
+      deprecatedLegacyJsonFieldConflicts_ = false;
+      if (features_ != null) {
+        features_.Dispose();
+        features_ = null;
+      }
+      for (int i = 0; i < uninterpretedOption_.Count; i++) {
+        uninterpretedOption_[i].Dispose();
+      }
+      uninterpretedOption_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<EnumOptions>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -9627,7 +10218,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.features_ != null) {
         if (features_ == null) {
-          Features = new global::Google.Protobuf.Reflection.FeatureSet();
+          Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
         }
         Features.MergeFrom(other.Features);
       }
@@ -9664,7 +10255,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 58: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -9704,7 +10295,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 58: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -9744,11 +10335,12 @@ namespace Google.Protobuf.Reflection {
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class EnumValueOptions : pb::IExtendableMessage<EnumValueOptions>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<EnumValueOptions> _parser = new pb::MessageParser<EnumValueOptions>(() => new EnumValueOptions());
+    private static readonly pb::MessageParser<EnumValueOptions> _parser = new pb::MessageParser<EnumValueOptions>(EnumValueOptions.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<EnumValueOptions> _extensions;
     private pb::ExtensionSet<EnumValueOptions> _Extensions { get { return _extensions; } }
@@ -9776,6 +10368,33 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static EnumValueOptions NewFromPool() {
+      return pb::MessagePool<EnumValueOptions>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      deprecated_ = false;
+      if (features_ != null) {
+        features_.Dispose();
+        features_ = null;
+      }
+      debugRedact_ = false;
+      for (int i = 0; i < uninterpretedOption_.Count; i++) {
+        uninterpretedOption_[i].Dispose();
+      }
+      uninterpretedOption_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<EnumValueOptions>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -10025,7 +10644,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.features_ != null) {
         if (features_ == null) {
-          Features = new global::Google.Protobuf.Reflection.FeatureSet();
+          Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
         }
         Features.MergeFrom(other.Features);
       }
@@ -10057,7 +10676,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 18: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -10093,7 +10712,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 18: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -10137,11 +10756,12 @@ namespace Google.Protobuf.Reflection {
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ServiceOptions : pb::IExtendableMessage<ServiceOptions>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ServiceOptions> _parser = new pb::MessageParser<ServiceOptions>(() => new ServiceOptions());
+    private static readonly pb::MessageParser<ServiceOptions> _parser = new pb::MessageParser<ServiceOptions>(ServiceOptions.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<ServiceOptions> _extensions;
     private pb::ExtensionSet<ServiceOptions> _Extensions { get { return _extensions; } }
@@ -10169,6 +10789,32 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static ServiceOptions NewFromPool() {
+      return pb::MessagePool<ServiceOptions>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      if (features_ != null) {
+        features_.Dispose();
+        features_ = null;
+      }
+      deprecated_ = false;
+      for (int i = 0; i < uninterpretedOption_.Count; i++) {
+        uninterpretedOption_[i].Dispose();
+      }
+      uninterpretedOption_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<ServiceOptions>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -10369,7 +11015,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.features_ != null) {
         if (features_ == null) {
-          Features = new global::Google.Protobuf.Reflection.FeatureSet();
+          Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
         }
         Features.MergeFrom(other.Features);
       }
@@ -10401,7 +11047,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 274: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -10433,7 +11079,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 274: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -10473,11 +11119,12 @@ namespace Google.Protobuf.Reflection {
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class MethodOptions : pb::IExtendableMessage<MethodOptions>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<MethodOptions> _parser = new pb::MessageParser<MethodOptions>(() => new MethodOptions());
+    private static readonly pb::MessageParser<MethodOptions> _parser = new pb::MessageParser<MethodOptions>(MethodOptions.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<MethodOptions> _extensions;
     private pb::ExtensionSet<MethodOptions> _Extensions { get { return _extensions; } }
@@ -10505,6 +11152,33 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static MethodOptions NewFromPool() {
+      return pb::MessagePool<MethodOptions>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      deprecated_ = false;
+      idempotencyLevel_ = global::Google.Protobuf.Reflection.MethodOptions.Types.IdempotencyLevel.IdempotencyUnknown;
+      if (features_ != null) {
+        features_.Dispose();
+        features_ = null;
+      }
+      for (int i = 0; i < uninterpretedOption_.Count; i++) {
+        uninterpretedOption_[i].Dispose();
+      }
+      uninterpretedOption_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<MethodOptions>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -10752,7 +11426,7 @@ namespace Google.Protobuf.Reflection {
       }
       if (other.features_ != null) {
         if (features_ == null) {
-          Features = new global::Google.Protobuf.Reflection.FeatureSet();
+          Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
         }
         Features.MergeFrom(other.Features);
       }
@@ -10785,7 +11459,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 282: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -10821,7 +11495,7 @@ namespace Google.Protobuf.Reflection {
           }
           case 282: {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             input.ReadMessage(Features);
             break;
@@ -10894,11 +11568,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class UninterpretedOption : pb::IMessage<UninterpretedOption>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<UninterpretedOption> _parser = new pb::MessageParser<UninterpretedOption>(() => new UninterpretedOption());
+    private static readonly pb::MessageParser<UninterpretedOption> _parser = new pb::MessageParser<UninterpretedOption>(UninterpretedOption.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10924,6 +11599,33 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static UninterpretedOption NewFromPool() {
+      return pb::MessagePool<UninterpretedOption>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      for (int i = 0; i < name_.Count; i++) {
+        name_[i].Dispose();
+      }
+      name_.Clear();
+      identifierValue_ = "";
+      positiveIntValue_ = 0UL;
+      negativeIntValue_ = 0L;
+      doubleValue_ = 0D;
+      stringValue_ = pb::ByteString.Empty;
+      aggregateValue_ = "";
+      _unknownFields = null;
+      pb::MessagePool<UninterpretedOption>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -11398,11 +12100,12 @@ namespace Google.Protobuf.Reflection {
       /// </summary>
       [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class NamePart : pb::IMessage<NamePart>
+          , global::System.IDisposable
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<NamePart> _parser = new pb::MessageParser<NamePart>(() => new NamePart());
+        private static readonly pb::MessageParser<NamePart> _parser = new pb::MessageParser<NamePart>(NamePart.NewFromPool);
         private pb::UnknownFieldSet _unknownFields;
         private int _hasBits0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11428,6 +12131,25 @@ namespace Google.Protobuf.Reflection {
         }
 
         partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static NamePart NewFromPool() {
+          return pb::MessagePool<NamePart>.Get();
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void Dispose() {
+          OnDispose();
+          _hasBits0 = 0;
+          namePart_ = "";
+          isExtension_ = false;
+          _unknownFields = null;
+          pb::MessagePool<NamePart>.Release(this);
+        }
+
+        partial void OnDispose();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -11669,11 +12391,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FeatureSet : pb::IExtendableMessage<FeatureSet>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<FeatureSet> _parser = new pb::MessageParser<FeatureSet>(() => new FeatureSet());
+    private static readonly pb::MessageParser<FeatureSet> _parser = new pb::MessageParser<FeatureSet>(FeatureSet.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     internal pb::ExtensionSet<FeatureSet> _extensions;
     private pb::ExtensionSet<FeatureSet> _Extensions { get { return _extensions; } }
@@ -11701,6 +12424,29 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static FeatureSet NewFromPool() {
+      return pb::MessagePool<FeatureSet>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      fieldPresence_ = global::Google.Protobuf.Reflection.FeatureSet.Types.FieldPresence.Unknown;
+      enumType_ = global::Google.Protobuf.Reflection.FeatureSet.Types.EnumType.Unknown;
+      repeatedFieldEncoding_ = global::Google.Protobuf.Reflection.FeatureSet.Types.RepeatedFieldEncoding.Unknown;
+      utf8Validation_ = global::Google.Protobuf.Reflection.FeatureSet.Types.Utf8Validation.Unknown;
+      messageEncoding_ = global::Google.Protobuf.Reflection.FeatureSet.Types.MessageEncoding.Unknown;
+      jsonFormat_ = global::Google.Protobuf.Reflection.FeatureSet.Types.JsonFormat.Unknown;
+      _unknownFields = null;
+      pb::MessagePool<FeatureSet>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -12232,11 +12978,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FeatureSetDefaults : pb::IMessage<FeatureSetDefaults>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<FeatureSetDefaults> _parser = new pb::MessageParser<FeatureSetDefaults>(() => new FeatureSetDefaults());
+    private static readonly pb::MessageParser<FeatureSetDefaults> _parser = new pb::MessageParser<FeatureSetDefaults>(FeatureSetDefaults.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12262,6 +13009,29 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static FeatureSetDefaults NewFromPool() {
+      return pb::MessagePool<FeatureSetDefaults>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      _hasBits0 = 0;
+      for (int i = 0; i < defaults_.Count; i++) {
+        defaults_[i].Dispose();
+      }
+      defaults_.Clear();
+      minimumEdition_ = global::Google.Protobuf.Reflection.Edition.Unknown;
+      maximumEdition_ = global::Google.Protobuf.Reflection.Edition.Unknown;
+      _unknownFields = null;
+      pb::MessagePool<FeatureSetDefaults>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -12534,11 +13304,12 @@ namespace Google.Protobuf.Reflection {
       /// </summary>
       [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class FeatureSetEditionDefault : pb::IMessage<FeatureSetEditionDefault>
+          , global::System.IDisposable
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<FeatureSetEditionDefault> _parser = new pb::MessageParser<FeatureSetEditionDefault>(() => new FeatureSetEditionDefault());
+        private static readonly pb::MessageParser<FeatureSetEditionDefault> _parser = new pb::MessageParser<FeatureSetEditionDefault>(FeatureSetEditionDefault.NewFromPool);
         private pb::UnknownFieldSet _unknownFields;
         private int _hasBits0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12564,6 +13335,28 @@ namespace Google.Protobuf.Reflection {
         }
 
         partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static FeatureSetEditionDefault NewFromPool() {
+          return pb::MessagePool<FeatureSetEditionDefault>.Get();
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void Dispose() {
+          OnDispose();
+          _hasBits0 = 0;
+          edition_ = global::Google.Protobuf.Reflection.Edition.Unknown;
+          if (features_ != null) {
+            features_.Dispose();
+            features_ = null;
+          }
+          _unknownFields = null;
+          pb::MessagePool<FeatureSetEditionDefault>.Release(this);
+        }
+
+        partial void OnDispose();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -12722,7 +13515,7 @@ namespace Google.Protobuf.Reflection {
           }
           if (other.features_ != null) {
             if (features_ == null) {
-              Features = new global::Google.Protobuf.Reflection.FeatureSet();
+              Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
             }
             Features.MergeFrom(other.Features);
           }
@@ -12743,7 +13536,7 @@ namespace Google.Protobuf.Reflection {
                 break;
               case 18: {
                 if (features_ == null) {
-                  Features = new global::Google.Protobuf.Reflection.FeatureSet();
+                  Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
                 }
                 input.ReadMessage(Features);
                 break;
@@ -12769,7 +13562,7 @@ namespace Google.Protobuf.Reflection {
                 break;
               case 18: {
                 if (features_ == null) {
-                  Features = new global::Google.Protobuf.Reflection.FeatureSet();
+                  Features = global::Google.Protobuf.Reflection.FeatureSet.NewFromPool();
                 }
                 input.ReadMessage(Features);
                 break;
@@ -12796,11 +13589,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class SourceCodeInfo : pb::IMessage<SourceCodeInfo>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SourceCodeInfo> _parser = new pb::MessageParser<SourceCodeInfo>(() => new SourceCodeInfo());
+    private static readonly pb::MessageParser<SourceCodeInfo> _parser = new pb::MessageParser<SourceCodeInfo>(SourceCodeInfo.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -12825,6 +13619,26 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static SourceCodeInfo NewFromPool() {
+      return pb::MessagePool<SourceCodeInfo>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      for (int i = 0; i < location_.Count; i++) {
+        location_[i].Dispose();
+      }
+      location_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<SourceCodeInfo>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -13023,11 +13837,12 @@ namespace Google.Protobuf.Reflection {
     public static partial class Types {
       [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Location : pb::IMessage<Location>
+          , global::System.IDisposable
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<Location> _parser = new pb::MessageParser<Location>(() => new Location());
+        private static readonly pb::MessageParser<Location> _parser = new pb::MessageParser<Location>(Location.NewFromPool);
         private pb::UnknownFieldSet _unknownFields;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -13052,6 +13867,27 @@ namespace Google.Protobuf.Reflection {
         }
 
         partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static Location NewFromPool() {
+          return pb::MessagePool<Location>.Get();
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void Dispose() {
+          OnDispose();
+          path_.Clear();
+          span_.Clear();
+          leadingComments_ = "";
+          trailingComments_ = "";
+          leadingDetachedComments_.Clear();
+          _unknownFields = null;
+          pb::MessagePool<Location>.Release(this);
+        }
+
+        partial void OnDispose();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -13451,11 +14287,12 @@ namespace Google.Protobuf.Reflection {
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class GeneratedCodeInfo : pb::IMessage<GeneratedCodeInfo>
+      , global::System.IDisposable
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<GeneratedCodeInfo> _parser = new pb::MessageParser<GeneratedCodeInfo>(() => new GeneratedCodeInfo());
+    private static readonly pb::MessageParser<GeneratedCodeInfo> _parser = new pb::MessageParser<GeneratedCodeInfo>(GeneratedCodeInfo.NewFromPool);
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -13480,6 +14317,26 @@ namespace Google.Protobuf.Reflection {
     }
 
     partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static GeneratedCodeInfo NewFromPool() {
+      return pb::MessagePool<GeneratedCodeInfo>.Get();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void Dispose() {
+      OnDispose();
+      for (int i = 0; i < annotation_.Count; i++) {
+        annotation_[i].Dispose();
+      }
+      annotation_.Clear();
+      _unknownFields = null;
+      pb::MessagePool<GeneratedCodeInfo>.Release(this);
+    }
+
+    partial void OnDispose();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -13637,11 +14494,12 @@ namespace Google.Protobuf.Reflection {
     public static partial class Types {
       [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Annotation : pb::IMessage<Annotation>
+          , global::System.IDisposable
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<Annotation> _parser = new pb::MessageParser<Annotation>(() => new Annotation());
+        private static readonly pb::MessageParser<Annotation> _parser = new pb::MessageParser<Annotation>(Annotation.NewFromPool);
         private pb::UnknownFieldSet _unknownFields;
         private int _hasBits0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13667,6 +14525,28 @@ namespace Google.Protobuf.Reflection {
         }
 
         partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static Annotation NewFromPool() {
+          return pb::MessagePool<Annotation>.Get();
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void Dispose() {
+          OnDispose();
+          _hasBits0 = 0;
+          path_.Clear();
+          sourceFile_ = "";
+          begin_ = 0;
+          end_ = 0;
+          semantic_ = global::Google.Protobuf.Reflection.GeneratedCodeInfo.Types.Annotation.Types.Semantic.None;
+          _unknownFields = null;
+          pb::MessagePool<Annotation>.Release(this);
+        }
+
+        partial void OnDispose();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
