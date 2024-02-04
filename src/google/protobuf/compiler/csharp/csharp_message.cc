@@ -389,28 +389,42 @@ void MessageGenerator::GenerateReleasingCode(io::Printer* printer) {
     const OneofDescriptor* oneof = descriptor_->oneof_decl(i);
     vars["name"] = UnderscoresToCamelCase(oneof->name(), false);
     vars["property_name"] = UnderscoresToCamelCase(oneof->name(), true);
-    printer->Print(vars, "switch ($property_name$Case) {\n");
-    printer->Indent();
+    
+    bool hasMessageCase = false;
     for (int j = 0; j < oneof->field_count(); j++) {
       const FieldDescriptor* field = oneof->field(j);
-
       if (field->type() != FieldDescriptor::TYPE_MESSAGE &&
           field->type() != FieldDescriptor::TYPE_GROUP) {
         continue;
       }
 
-      std::unique_ptr<FieldGeneratorBase> generator(
-          CreateFieldGeneratorInternal(field));
-      vars["oneof_case_name"] = GetOneofCaseName(field);
-      printer->Print(vars,
-                     "case $property_name$OneofCase.$oneof_case_name$:\n");
-      printer->Indent();
-      generator->GenerateReleasingCode(printer);
-      printer->Print("break;\n");
-      printer->Outdent();
+      hasMessageCase = true;
+      break;
     }
-    printer->Outdent();
-    printer->Print("}\n");
+
+    if (hasMessageCase) {
+      printer->Print(vars, "switch ($property_name$Case) {\n");
+      printer->Indent();
+      for (int j = 0; j < oneof->field_count(); j++) {
+        const FieldDescriptor* field = oneof->field(j);
+        if (field->type() != FieldDescriptor::TYPE_MESSAGE &&
+            field->type() != FieldDescriptor::TYPE_GROUP) {
+          continue;
+        }
+
+        std::unique_ptr<FieldGeneratorBase> generator(
+            CreateFieldGeneratorInternal(field));
+        vars["oneof_case_name"] = GetOneofCaseName(field);
+        printer->Print(vars,
+                       "case $property_name$OneofCase.$oneof_case_name$:\n");
+        printer->Indent();
+        generator->GenerateReleasingCode(printer);
+        printer->Print("break;\n");
+        printer->Outdent();
+      }
+      printer->Outdent();
+      printer->Print("}\n");
+    }
 
     printer->Print(vars, "Clear$property_name$();\n\n");
   }
